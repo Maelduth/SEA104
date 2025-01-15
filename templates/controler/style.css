@@ -1,0 +1,40 @@
+body {
+    background: linear-gradient(to right, rgb(230, 232, 235), #6610f2); /* Dégradé de bleu à violet */
+    color: white; /* Couleur du texte pour contraster avec le fond */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.header-title {
+    color: pink; /* Couleur du texte en rose */
+    font-family: 'Dancing Script', cursive;
+    text-decoration: underline; /* Souligner le texte */
+    font-size: 48px; /* Augmenter la taille du texte */
+}
+
+.info-list {
+    color: black; /* Couleur du texte en noir */
+    font-size: 24px; /* Taille du texte plus grande */
+    font-family: 'Dancing Script', cursive; /* Même type de police que "Qui suis-je ?" */
+    line-height: 2; /* Espacement entre les lignes */
+    margin-top: 20px; /* Espacement au-dessus de la liste */
+}
+
+.info-list .highlight {
+    text-decoration: underline; /* Souligner les éléments spécifiques */
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

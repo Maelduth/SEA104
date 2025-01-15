@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(230, 232, 235), #6610f2); /* Dégradé de bleu à violet */
+            color: white; /* Couleur du texte pour contraster avec le fond */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        .header-title {
+            color: pink; /* Couleur du texte en rose */
+            font-family: 'Dancing Script', cursive;
+            text-decoration: underline; /* Souligner le texte */
+            font-size: 48px; /* Augmenter la taille du texte */
+        }
+        .info-list {
+            color: black; /* Couleur du texte en noir */
+            font-size: 28px; /* Taille du texte plus grande */
+            font-family: 'Dancing Script', cursive; /* Même type de police que "Qui suis-je ?" */
+            line-height: 2; /* Espacement entre les lignes */
+            margin-top: 20px; /* Espacement au-dessus de la liste */
+        }
+        .info-list .highlight {
+            text-decoration: underline; /* Souligner les éléments spécifiques */
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .photo img {
+            max-width: 150px; /* Ajustez la taille de l'image selon vos besoins */
+            border-radius: 50%; /* Pour une image ronde */
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <header>
+        <h1 class="text-center header-title">Qui suis-je ?</h1>
+    </header>
+
+    <section class="d-flex align-items-center">
+        <div class="info-list me-4">
+            <ul>
+                <li><span class="highlight">Nom:</span> DUTHU</li>
+                <li><span class="highlight">Prénom:</span> Mael</li>
+                <li><span class="highlight">Groupe de TD:</span> TD A1</li>
+                <li>Cela fait depuis septembre 2024 que je suis étudiant, <br> en première année de l'IUT Réseau et Télécom de Roanne.<br>
+                Je suis (pour le moment) agréablement surpris des différentes choses <br> que je découvre durant ces heures d'apprentissage et j'espère en découvrir davantage.</li>
+            </ul>
+        </div>
+        <div class="photo">
+            <img src="path/to/your/photo.jpg" alt="Votre Photo" class="img-fluid rounded">
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <div class="container p-4 rounded">
+            <h2 class="text-center">Pour en savoir plus</h2>
+            <p class="text-center">Cliquez sur le bouton ci-dessous pour en savoir plus sur mes loisirs, passions, envies, projets, etc.</p>
+            <div class="text-center">
+                <a href="{{ path('app_passion') }}" class="btn btn-primary">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+</footer>
+{% endblock %}
