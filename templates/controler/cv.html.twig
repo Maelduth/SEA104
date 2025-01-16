@@ -2,9 +2,64 @@
 
 {% block title %}CV{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
 <div class="container">
-    <h1 class="text-center">CV</h1>
-    <p>Contenu de la page CV.</p>
+    <header class="text-center">
+        <h1 class="header-title">Curriculum Vitae</h1>
+        <p>Nom: DUTHU</p>
+        <p>Prénom: Mael</p>
+        <p>Email: mael.duthu@example.com</p>
+        <p>Téléphone: 0123456789</p>
+    </header>
+
+    <section class="cv-section">
+        <h2>Ingénieur en Télécommunications et IoT (Internet des Objets)</h2>
+        <ul>
+            <li>
+                <span>IUT Réseau et Télécom de Roanne</span> - Première année (Depuis septembre 2024)
+            </li>
+            <li>
+                <span>Lycée XYZ</span> - Baccalauréat Scientifique (2020 - 2024)
+            </li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Formation</h2>
+        <ul>
+            <li>
+                <span>Stage en entreprise ABC</span> - Développeur Web (Juin 2023 - Août 2023)
+                <p>Développement de fonctionnalités pour le site web de l'entreprise.</p>
+            </li>
+            <li>
+                <span>Job d'été chez DEF</span> - Assistant Informatique (Juillet 2022 - Août 2022)
+                <p>Assistance technique et maintenance des systèmes informatiques.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Expérience Professionnelle</h2>
+        <ul>
+            <li>Langages de programmation: HTML, CSS, JavaScript, PHP</li>
+            <li>Frameworks: Symfony, Bootstrap</li>
+            <li>Outils: Git, Docker</li>
+            <li>Langues: Français (natif), Anglais (courant)</li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Compétences</h2>
+        <ul>
+            <li>Programmation et développement web</li>
+            <li>Lecture de livres techniques et scientifiques</li>
+            <li>Sports: Football, Tennis</li>
+            <li>Voyages et découvertes culturelles</li>
+        </ul>
+    </section>
 </div>
 {% endblock %}

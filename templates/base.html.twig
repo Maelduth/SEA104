@@ -1,4 +1,3 @@
-<!-- filepath: /c:/SEA104/Symfony/MaelProjet/templates/base.html.twig -->
 <!DOCTYPE html>
 <html>
  <head>
@@ -6,7 +5,76 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(230, 232, 235), #6610f2); /* Dégradé de bleu à violet */
+            color: white; /* Couleur du texte pour contraster avec le fond */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        .header-title {
+            color: pink; /* Couleur du texte en rose */
+            font-family: 'Dancing Script', cursive;
+            text-decoration: underline; /* Souligner le texte */
+            font-size: 48px; /* Augmenter la taille du texte */
+        }
+        .info-list {
+            color: black; /* Couleur du texte en noir */
+            font-size: 28px; /* Taille du texte plus grande */
+            font-family: 'Dancing Script', cursive; /* Même type de police que "Qui suis-je ?" */
+            line-height: 2; /* Espacement entre les lignes */
+            margin-top: 20px; /* Espacement au-dessus de la liste */
+        }
+        .info-list .highlight {
+            text-decoration: underline; /* Souligner les éléments spécifiques */
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .photo img {
+            max-width: 150px; /* Ajustez la taille de l'image selon vos besoins */
+            border-radius: 50%; /* Pour une image ronde */
+        }
+        .more-info-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: pink;
+            text-decoration: underline;
+        }
+        .cv-section {
+            margin-bottom: 30px;
+        }
+        .cv-section h2 {
+            font-size: 24px;
+            color: #333;
+            border-bottom: 2px solid #6610f2;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+        .cv-section ul {
+            list-style-type: none;
+            padding: 0;
+            display: none; /* Hide the content initially */
+        }
+        .cv-section ul li {
+            margin-bottom: 10px;
+        }
+        .cv-section ul li span {
+            font-weight: bold;
+        }
+    </style>
+    {% endblock %}
  </head>
  <body>
  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -17,24 +85,104 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="{{ path('app_home') }}">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
+          <a class="nav-link {% if app.request.get('_route') == 'app_home' %}active{% endif %}" href="{{ path('app_home') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_portfolio') }}">Portfolio</a>
+          <a class="nav-link {% if app.request.get('_route') == 'app_portfolio' %}active{% endif %}" href="{{ path('app_portfolio') }}">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_cv') }}">CV</a>
+          <a class="nav-link {% if app.request.get('_route') == 'app_cv' %}active{% endif %}" href="{{ path('app_cv') }}">CV</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_passion') }}">Passions</a>
+          <a class="nav-link {% if app.request.get('_route') == 'app_passion' %}active{% endif %}" href="{{ path('app_passion') }}">Passions</a>
         </li>
       </ul>
     </div>
   </div>
  </nav>
  {% block body %}{% endblock %}
- {% block javascripts %}{% endblock %}
+ {% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var translateButton = document.getElementById('translate-button');
+            if (translateButton) {
+                translateButton.addEventListener('click', function() {
+                    var headerTitle = document.getElementById('header-title');
+                    var description = document.getElementById('description');
+                    var moreInfoTitle = document.getElementById('more-info-title');
+                    var moreInfoText = document.getElementById('more-info-text');
+                    var moreInfoButton = document.getElementById('more-info-button');
+
+                    if (headerTitle.innerText === 'Qui suis-je ?') {
+                        headerTitle.innerText = 'Who am I?';
+                        description.innerHTML = 'Since September 2024, I have been a student in the first year of the IUT Network and Telecom of Roanne.<br>I am (for the moment) pleasantly surprised by the different things I discover during these hours of learning and I hope to discover more.';
+                        moreInfoTitle.innerText = 'To learn more';
+                        moreInfoText.innerText = 'Click the button below to learn more about my hobbies, passions, desires, projects, etc.';
+                        moreInfoButton.innerText = 'Learn more';
+                    } else {
+                        headerTitle.innerText = 'Qui suis-je ?';
+                        description.innerHTML = 'Cela fait depuis septembre 2024 que je suis étudiant, <br> en première année de l\'IUT Réseau et Télécom de Roanne.<br>Je suis (pour le moment) agréablement surpris des différentes choses <br> que je découvre durant ces heures d\'apprentissage et j\'espère en découvrir davantage.';
+                        moreInfoTitle.innerText = 'Pour en savoir plus';
+                        moreInfoText.innerText = 'Cliquez sur le bouton ci-dessous pour en savoir plus sur mes loisirs, passions, envies, projets, etc.';
+                        moreInfoButton.innerText = 'En savoir plus';
+                    }
+                });
+            }
+
+            function toggleSection(element) {
+                var ul = element.nextElementSibling;
+                if (ul.style.display === "none" || ul.style.display === "") {
+                    ul.style.display = "block";
+                } else {
+                    ul.style.display = "none";
+                }
+            }
+
+            document.querySelectorAll('.cv-section h2').forEach(function(h2) {
+                h2.addEventListener('click', function() {
+                    toggleSection(this);
+                });
+            });
+
+            // Translation for CV page
+            var cvTranslateButton = document.getElementById('translate-button');
+            if (cvTranslateButton) {
+                cvTranslateButton.addEventListener('click', function() {
+                    var headerTitle = document.getElementById('header-title');
+                    var educationTitle = document.getElementById('education-title');
+                    var educationContent = document.getElementById('education-content');
+                    var experienceTitle = document.getElementById('experience-title');
+                    var experienceContent = document.getElementById('experience-content');
+                    var skillsTitle = document.getElementById('skills-title');
+                    var skillsContent = document.getElementById('skills-content');
+                    var hobbiesTitle = document.getElementById('hobbies-title');
+                    var hobbiesContent = document.getElementById('hobbies-content');
+
+                    if (headerTitle.innerText === 'Intitulé du poste réseaux et télécommunications de vos rêves') {
+                        headerTitle.innerText = 'Title of your dream job in networks and telecommunications';
+                        educationTitle.innerText = 'Education';
+                        educationContent.innerHTML = '<li><span>IUT Network and Telecom of Roanne</span> - First year (Since September 2024)</li><li><span>XYZ High School</span> - Scientific Baccalaureate (2020 - 2024)</li>';
+                        experienceTitle.innerText = 'Professional Experience';
+                        experienceContent.innerHTML = '<li><span>Internship at ABC Company</span> - Web Developer (June 2023 - August 2023)<p>Development of features for the company\'s website.</p></li><li><span>Summer Job at DEF</span> - IT Assistant (July 2022 - August 2022)<p>Technical assistance and maintenance of IT systems.</p></li>';
+                        skillsTitle.innerText = 'Skills';
+                        skillsContent.innerHTML = '<li>Programming languages: HTML, CSS, JavaScript, PHP</li><li>Frameworks: Symfony, Bootstrap</li><li>Tools: Git, Docker</li><li>Languages: French (native), English (fluent)</li>';
+                        hobbiesTitle.innerText = 'Hobbies and Interests';
+                        hobbiesContent.innerHTML = '<li>Programming and web development</li><li>Reading technical and scientific books</li><li>Sports: Football, Tennis</li><li>Travel and cultural discoveries</li>';
+                    } else {
+                        headerTitle.innerText = 'Intitulé du poste réseaux et télécommunications de vos rêves';
+                        educationTitle.innerText = 'Formations';
+                        educationContent.innerHTML = '<li><span>IUT Réseau et Télécom de Roanne</span> - Première année (Depuis septembre 2024)</li><li><span>Lycée XYZ</span> - Baccalauréat Scientifique (2020 - 2024)</li>';
+                        experienceTitle.innerText = 'Expériences Professionnelles';
+                        experienceContent.innerHTML = '<li><span>Stage en entreprise ABC</span> - Développeur Web (Juin 2023 - Août 2023)<p>Développement de fonctionnalités pour le site web de l\'entreprise.</p></li><li><span>Job d\'été chez DEF</span> - Assistant Informatique (Juillet 2022 - Août 2022)<p>Assistance technique et maintenance des systèmes informatiques.</p></li>';
+                        skillsTitle.innerText = 'Compétences';
+                        skillsContent.innerHTML = '<li>Langages de programmation: HTML, CSS, JavaScript, PHP</li><li>Frameworks: Symfony, Bootstrap</li><li>Outils: Git, Docker</li><li>Langues: Français (natif), Anglais (courant)</li>';
+                        hobbiesTitle.innerText = 'Loisirs et Intérêts';
+                        hobbiesContent.innerHTML = '<li>Programmation et développement web</li><li>Lecture de livres techniques et scientifiques</li><li>Sports: Football, Tennis</li><li>Voyages et découvertes culturelles</li>';
+                    }
+                });
+            }
+        });
+    </script>
+ {% endblock %}
  </body>
 </html>
