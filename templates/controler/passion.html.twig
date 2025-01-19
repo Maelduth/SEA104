@@ -6,7 +6,7 @@
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 400px;
+            height: 300px; /* Réduit la hauteur des cartes */
             perspective: 1000px;
             margin-bottom: 20px;
         }
@@ -30,7 +30,7 @@
             overflow: hidden;
         }
         .flip-card-front {
-            background-color:rgba(255, 105, 180, 0.4);
+            background-color: rgba(255, 105, 180, 0.4);
             color: black;
             display: flex;
             align-items: center;
@@ -55,8 +55,8 @@
             gap: 20px;
         }
         .gallery img {
-            width: 200px;
-            height: 150px;
+            width: 300px; /* Augmente la largeur des images */
+            height: 200px; /* Augmente la hauteur des images */
             object-fit: cover;
             border-radius: 10px;
         }
@@ -90,24 +90,8 @@
                     </div>
                     <div class="flip-card-back">
                         <ul>
-                            <li>Judo (10 ans de pratique)</li>
+                            <li>Ski</li>
                             <li>Volley-ball (5 ans, coupe de l'Ain gagnée)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h2>Musique</h2>
-                    </div>
-                    <div class="flip-card-back">
-                        <ul>
-                            <li>Guitare</li>
-                            <li>Piano</li>
-                            <li>Chant</li>
                         </ul>
                     </div>
                 </div>
@@ -115,9 +99,11 @@
         </div>
     </div>
     <div class="gallery">
-        <img src="{{ asset('photo/randonnee.jpg') }}" alt="Randonnée">
-        <img src="{{ asset('photo/volleyball.jpg') }}" alt="Volley-ball">
-        <img src="{{ asset('photo/guitare.jpg') }}" alt="Guitare">
+        <img src="{{ asset('images/image1.png') }}" alt="Randonnée">
+        <img src="{{ asset('images/image2.png') }}" alt="Randonnée">
+        <img src="{{ asset('images/image3.png') }}" alt="Randonnée">
+        <img src="{{ asset('images/image4.png') }}" alt="Randonnée">
     </div>
 </div>
+
 {% endblock %}

@@ -63,64 +63,85 @@
             margin-bottom: 10px;
             font-size: 16px;
         }
+        .header-text {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            background: none;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            color: black;
+        }
     </style>
 {% endblock %}
 
 {% block body %}
 <div class="container">
     <h1 class="text-center header-title">Curriculum Vitae</h1>
+    
+    <!-- En-tête avec du texte -->
+    <div class="header-text">
+        <h2>Bienvenue sur mon CV en ligne</h2>
+        <p>Découvrez mon parcours académique et professionnel, ainsi que mes compétences et centres d'intérêt.</p>
+    </div>
+    
     <div class="row">
         <!-- Colonne gauche : Informations personnelles -->
         <div class="col-md-4 personal-info">
-            <img src="{{ asset('photo/photo.jpg') }}" alt="Votre Photo" class="img-fluid">
+            <img src="{{ asset('images/imageperso.jpg') }}" alt="Votre Photo" class="img-fluid">
             <ul>
                 <li><strong>Nom:</strong> DUTHU</li>
                 <li><strong>Prénom:</strong> Mael</li>
-                <li><strong>Email:</strong> mael.duthu@example.com</li>
-                <li><strong>Téléphone:</strong> 0123456789</li>
+                <li><strong>Email:</strong> mael.duthu@gmail.com</li>
+                <li><strong>Téléphone:</strong> 0660336998</li>
                 <li><strong>Langues:</strong>
                     <ul>
                         <li>Français (natif)</li>
                         <li>Anglais (courant)</li>
+                        <li>Espagnole (courant)</li>
                     </ul>
                 </li>
+                <li><strong>Profil:</strong>Je suis un jeune étudiant passioné par l'informatique et plus spécialement par les réseaux et télécoms. J'aime le contacte humain et principalement l'échange. </li>
             </ul>
         </div>
 
         <!-- Colonne droite : Boutons et contenu -->
         <div class="col-md-8 right-column">
             <div class="button-group">
-                <button class="btn btn-primary toggle-button" data-target="#education-content">Éducation</button>
+                <button class="btn btn-primary toggle-button" data-target="#education-content">Formations</button>
                 <div id="education-content" class="cv-section">
                     <ul>
-                        <li><span>Baccalauréat Scientifique :</span> Lycée XYZ, 2020-2024</li>
-                        <li><span>IUT Réseaux et Télécoms :</span> Première année, depuis 2024</li>
+                        <li><span>Baccalauréat Spécialités : Maths, Physique, Maths expertes :</span> </li>
+                        <li><strong> Année 2023-2024:</strong>Prépa intégré Polytech Dijon </li>
+                        <li><span>IUT Réseaux et Télécoms :</span> Première année, depuis septembre 2024</li>
                     </ul>
                 </div>
 
                 <button class="btn btn-primary toggle-button" data-target="#experience-content">Expérience Professionnelle</button>
                 <div id="experience-content" class="cv-section">
                     <ul>
-                        <li><span>Stage Développeur Web :</span> ABC Company, 2023</li>
-                        <li><span>Assistant IT :</span> DEF Services, été 2022</li>
+                        <li><span>Juillet-Aout 2024 : <strong> Brasserie Bois des Mousses </strong> </span> 
+                        <br> J'ai travaillé pendant 2 mois dans cette brasserie artisanale et familiale. Pendant ces deux mois , j'ai brassé la bière, fait de la mise en bouteille, de l'étiquetage , de l'encaissement et le nettoyage des locaux</li>
                     </ul>
                 </div>
 
                 <button class="btn btn-primary toggle-button" data-target="#skills-content">Compétences</button>
                 <div id="skills-content" class="cv-section">
                     <ul>
-                        <li><span>Langages :</span> HTML, CSS, JavaScript, PHP</li>
-                        <li><span>Outils :</span> Git, Docker</li>
-                        <li><span>Langues :</span> Français (natif), Anglais (courant)</li>
+                        <li><span>Langages :</span> - HTML, CSS, JavaScript <br> Python, C, C++  </li>
+                        <li><span>Outils :</span> Visual Sutdio Code , Spyder , Packet Tracer </li>
                     </ul>
                 </div>
 
                 <button class="btn btn-primary toggle-button" data-target="#hobbies-content">Loisirs</button>
                 <div id="hobbies-content" class="cv-section">
                     <ul>
-                        <li>Programmation et développement web</li>
-                        <li>Lecture de livres techniques et scientifiques</li>
-                        <li>Sports : football, tennis</li>
+                        <li>Ecologie </li>
+                        <li>Sports : Volley-ball</li>
                     </ul>
                 </div>
             </div>
@@ -154,4 +175,5 @@
             });
         });
     </script>
+    
 {% endblock %}
