@@ -2,25 +2,20 @@
 
 {% block title %}Home{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
 {% block body %}
 <div class="container">
     <header class="d-flex justify-content-between align-items-center">
-        <h1 class="text-center header-title flex-grow-1" id="header-title">Qui suis-je ?</h1>
+        <h1 class="text-center header-title flex-grow-1" id="header-title" data-fr="Qui suis-je ?" data-en="Who am I?">Qui suis-je ?</h1>
         <button id="translate-button" class="btn btn-secondary ms-3">Translate</button>
     </header>
 
     <section class="d-flex align-items-center mt-4">
         <div class="info-list me-4">
             <ul>
-                <li><span class="highlight">Nom:</span> DUTHU</li>
-                <li><span class="highlight">Prénom:</span> Mael</li>
-                <li><span class="highlight">Groupe de TD:</span> TD A1</li>
-                <li id="description">Cela fait depuis septembre 2024 que je suis étudiant, <br> en première année de l'IUT Réseau et Télécom de Roanne.<br>
-                Je suis (pour le moment) agréablement surpris des différentes choses <br> que je découvre durant ces heures d'apprentissage et j'espère en découvrir davantage.</li>
+                <li><span class="highlight" id="name-label" data-fr="Nom:" data-en="Name:">Nom:</span> <span id="name-value">DUTHU</span></li>
+                <li><span class="highlight" id="first-name-label" data-fr="Prénom:" data-en="First Name:">Prénom:</span> <span id="first-name-value">Mael</span></li>
+                <li><span class="highlight" id="group-label" data-fr="Groupe de TD:" data-en="Tutorial Group:">Groupe de TD:</span> <span id="group-value">TD A1</span></li>
+                <li id="description" data-fr="Cela fait depuis septembre 2024 que je suis étudiant, <br> en première année de l'IUT Réseau et Télécom de Roanne.<br> Je suis (pour le moment) agréablement surpris des différentes choses <br> que je découvre durant ces heures d'apprentissage et j'espère en découvrir davantage." data-en="Since September 2024, I have been a student in the first year of the IUT Network and Telecom of Roanne. I am (for the moment) pleasantly surprised by the different things I discover during these hours of learning and I hope to discover more.">Cela fait depuis septembre 2024 que je suis étudiant, <br> en première année de l'IUT Réseau et Télécom de Roanne.<br> Je suis (pour le moment) agréablement surpris des différentes choses <br> que je découvre durant ces heures d'apprentissage et j'espère en découvrir davantage.</li>
             </ul>
         </div>
         <div class="photo">
@@ -30,10 +25,10 @@
 
     <section class="mt-5">
         <div class="container p-4 rounded">
-            <h2 class="text-center more-info-title" id="more-info-title">Pour en savoir plus</h2>
-            <p class="text-center" id="more-info-text">Cliquez sur le bouton ci-dessous pour en savoir plus sur mes loisirs, passions, envies, projets, etc.</p>
+            <h2 class="text-center more-info-title" id="more-info-title" data-fr="Pour en savoir plus" data-en="To learn more">Pour en savoir plus</h2>
+            <p class="text-center" id="more-info-text" data-fr="Cliquez sur le bouton ci-dessous pour en savoir plus sur mes loisirs, passions, envies, projets, etc." data-en="Click the button below to learn more about my hobbies, passions, desires, projects, etc.">Cliquez sur le bouton ci-dessous pour en savoir plus sur mes loisirs, passions, envies, projets, etc.</p>
             <div class="text-center">
-                <a href="{{ path('app_passion') }}" class="btn btn-primary" id="more-info-button">En savoir plus</a>
+                <a href="{{ path('app_passion') }}" class="btn btn-primary" id="more-info-button" data-fr="En savoir plus" data-en="Learn more">En savoir plus</a>
             </div>
         </div>
     </section>
@@ -41,7 +36,7 @@
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted" id="footer-text" data-fr="Place sticky footer content here." data-en="Place sticky footer content here.">Place sticky footer content here.</span>
     </div>
 </footer>
 {% endblock %}

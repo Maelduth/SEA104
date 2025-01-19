@@ -1,65 +1,157 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CV{% endblock %}
-
 {% block stylesheets %}
     {{ parent() }}
+    <style>
+        .header-title {
+            font-size: 72px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-decoration: none; /* Supprime la soulignure */
+        }
+        .row {
+            height: calc(100vh - 100px); /* Hauteur totale de la page moins le titre */
+        }
+        .personal-info {
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrer les éléments */
+            border-radius: 10px;
+        }
+        .personal-info img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .personal-info ul {
+            list-style: none;
+            padding: 0;
+            text-align: center; /* Centrer le texte */
+        }
+        .personal-info ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Aligner les boutons et contenus en haut */
+            gap: 20px; /* Espacement entre les boutons */
+            height: 100%;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Augmente l'espacement entre les boutons */
+        }
+        .button-group button {
+            width: 100%;
+            font-size: 18px;
+        }
+        .cv-section {
+            display: none; /* Masqué par défaut */
+        }
+        .cv-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px; /* Ajout d'espace entre le bouton et le contenu */
+        }
+        .cv-section ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    <header class="text-center">
-        <h1 class="header-title">Curriculum Vitae</h1>
-        <p>Nom: DUTHU</p>
-        <p>Prénom: Mael</p>
-        <p>Email: mael.duthu@example.com</p>
-        <p>Téléphone: 0123456789</p>
-    </header>
+    <h1 class="text-center header-title">Curriculum Vitae</h1>
+    <div class="row">
+        <!-- Colonne gauche : Informations personnelles -->
+        <div class="col-md-4 personal-info">
+            <img src="{{ asset('photo/photo.jpg') }}" alt="Votre Photo" class="img-fluid">
+            <ul>
+                <li><strong>Nom:</strong> DUTHU</li>
+                <li><strong>Prénom:</strong> Mael</li>
+                <li><strong>Email:</strong> mael.duthu@example.com</li>
+                <li><strong>Téléphone:</strong> 0123456789</li>
+                <li><strong>Langues:</strong>
+                    <ul>
+                        <li>Français (natif)</li>
+                        <li>Anglais (courant)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-    <section class="cv-section">
-        <h2>Ingénieur en Télécommunications et IoT (Internet des Objets)</h2>
-        <ul>
-            <li>
-                <span>IUT Réseau et Télécom de Roanne</span> - Première année (Depuis septembre 2024)
-            </li>
-            <li>
-                <span>Lycée XYZ</span> - Baccalauréat Scientifique (2020 - 2024)
-            </li>
-        </ul>
-    </section>
+        <!-- Colonne droite : Boutons et contenu -->
+        <div class="col-md-8 right-column">
+            <div class="button-group">
+                <button class="btn btn-primary toggle-button" data-target="#education-content">Éducation</button>
+                <div id="education-content" class="cv-section">
+                    <ul>
+                        <li><span>Baccalauréat Scientifique :</span> Lycée XYZ, 2020-2024</li>
+                        <li><span>IUT Réseaux et Télécoms :</span> Première année, depuis 2024</li>
+                    </ul>
+                </div>
 
-    <section class="cv-section">
-        <h2>Formation</h2>
-        <ul>
-            <li>
-                <span>Stage en entreprise ABC</span> - Développeur Web (Juin 2023 - Août 2023)
-                <p>Développement de fonctionnalités pour le site web de l'entreprise.</p>
-            </li>
-            <li>
-                <span>Job d'été chez DEF</span> - Assistant Informatique (Juillet 2022 - Août 2022)
-                <p>Assistance technique et maintenance des systèmes informatiques.</p>
-            </li>
-        </ul>
-    </section>
+                <button class="btn btn-primary toggle-button" data-target="#experience-content">Expérience Professionnelle</button>
+                <div id="experience-content" class="cv-section">
+                    <ul>
+                        <li><span>Stage Développeur Web :</span> ABC Company, 2023</li>
+                        <li><span>Assistant IT :</span> DEF Services, été 2022</li>
+                    </ul>
+                </div>
 
-    <section class="cv-section">
-        <h2>Expérience Professionnelle</h2>
-        <ul>
-            <li>Langages de programmation: HTML, CSS, JavaScript, PHP</li>
-            <li>Frameworks: Symfony, Bootstrap</li>
-            <li>Outils: Git, Docker</li>
-            <li>Langues: Français (natif), Anglais (courant)</li>
-        </ul>
-    </section>
+                <button class="btn btn-primary toggle-button" data-target="#skills-content">Compétences</button>
+                <div id="skills-content" class="cv-section">
+                    <ul>
+                        <li><span>Langages :</span> HTML, CSS, JavaScript, PHP</li>
+                        <li><span>Outils :</span> Git, Docker</li>
+                        <li><span>Langues :</span> Français (natif), Anglais (courant)</li>
+                    </ul>
+                </div>
 
-    <section class="cv-section">
-        <h2>Compétences</h2>
-        <ul>
-            <li>Programmation et développement web</li>
-            <li>Lecture de livres techniques et scientifiques</li>
-            <li>Sports: Football, Tennis</li>
-            <li>Voyages et découvertes culturelles</li>
-        </ul>
-    </section>
+                <button class="btn btn-primary toggle-button" data-target="#hobbies-content">Loisirs</button>
+                <div id="hobbies-content" class="cv-section">
+                    <ul>
+                        <li>Programmation et développement web</li>
+                        <li>Lecture de livres techniques et scientifiques</li>
+                        <li>Sports : football, tennis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h3>Générer votre CV</h3>
+        <form id="cv-form">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+            <a href="{{ asset('photo/CVpdf.pdf') }}" class="btn btn-success mt-3" download>Télécharger en PDF</a>
+        </form>
+    </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.toggle-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const target = document.querySelector(this.getAttribute('data-target'));
+                    // Alterner l'affichage de la section cliquée uniquement
+                    target.style.display = (target.style.display === 'block') ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
 {% endblock %}
