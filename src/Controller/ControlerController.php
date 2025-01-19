@@ -48,4 +48,5 @@ final class ControlerController extends AbstractController
             'title' => "Passions"
         ]);
     }
+    
 }

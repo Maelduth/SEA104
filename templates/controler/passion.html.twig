@@ -1,67 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <style>
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 300px; /* Réduit la hauteur des cartes */
-            perspective: 1000px;
-            margin-bottom: 20px;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .flip-card-front {
-            background-color: rgba(255, 105, 180, 0.4);
-            color: black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .flip-card-back {
-            background-color: rgb(9, 168, 134);
-            color: white;
-            transform: rotateY(180deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .gallery {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .gallery img {
-            width: 300px; /* Augmente la largeur des images */
-            height: 200px; /* Augmente la hauteur des images */
-            object-fit: cover;
-            border-radius: 10px;
-        }
-    </style>
-{% endblock %}
+{% block passion_styles %}{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -97,13 +36,34 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Talk</h2>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul>
+                            <li>Musique</li>
+                            <li>Politique</li>
+                            <li>Religion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="gallery">
         <img src="{{ asset('images/image1.png') }}" alt="Randonnée">
         <img src="{{ asset('images/image2.png') }}" alt="Randonnée">
-        <img src="{{ asset('images/image3.png') }}" alt="Randonnée">
+        <img src="{{ asset('images/image3.png') }}" alt="Randonnée">  
         <img src="{{ asset('images/image4.png') }}" alt="Randonnée">
     </div>
 </div>
 
+
+{% block passion_javascripts %}{% endblock %}
+<footer class="footer">
+    <p>© {{ "now"|date("Y") }}  Mael DUTHU. Tous droits réservés. Reproduction interdite. Contact: maelduthu@gmail.com.</p>
+</footer>
 {% endblock %}

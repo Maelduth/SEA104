@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Merci{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .thank-you-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            text-align: center;
+            color: #333;
+        }
+        .thank-you-title {
+            font-size: 3rem;
+            color: rgba(255, 105, 180, 0.7); /* Rose pâle comme dans le thème */
+            margin-bottom: 20px;
+        }
+        .thank-you-text {
+            font-size: 1.5rem;
+            color: rgb(9, 168, 134); /* Vert utilisé dans le thème */
+            max-width: 600px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="thank-you-container">
+    <h1 class="thank-you-title">Merci pour votre écoute</h1>
+    <p class="thank-you-text">En espérant que mon orale vous a plu et que vous avez apprécié la présentation.</p>
+</div>
+{% endblock %}

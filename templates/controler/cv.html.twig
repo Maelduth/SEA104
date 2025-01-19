@@ -2,81 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        .header-title {
-            font-size: 72px;
-            color: #ffffff;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            text-decoration: none; /* Supprime la soulignure */
-        }
-        .row {
-            height: calc(100vh - 100px); /* Hauteur totale de la page moins le titre */
-        }
-        .personal-info {
-            color: #333;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centrer les éléments */
-            border-radius: 10px;
-        }
-        .personal-info img {
-            max-width: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        .personal-info ul {
-            list-style: none;
-            padding: 0;
-            text-align: center; /* Centrer le texte */
-        }
-        .personal-info ul li {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        .right-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Aligner les boutons et contenus en haut */
-            gap: 20px; /* Espacement entre les boutons */
-            height: 100%;
-        }
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Augmente l'espacement entre les boutons */
-        }
-        .button-group button {
-            width: 100%;
-            font-size: 18px;
-        }
-        .cv-section {
-            display: none; /* Masqué par défaut */
-        }
-        .cv-section ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px; /* Ajout d'espace entre le bouton et le contenu */
-        }
-        .cv-section ul li {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .header-text {
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            background: none;
-        }
-        .footer {
-            background-color: #f8f9fa;
-            padding: 10px 0;
-            text-align: center;
-            color: black;
-        }
-    </style>
+    
 {% endblock %}
 
 {% block body %}
@@ -155,7 +81,7 @@
             <input type="text" id="name" name="name" class="form-control" required>
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" class="form-control" required>
-            <a href="{{ asset('photo/CVpdf.pdf') }}" class="btn btn-success mt-3" download>Télécharger en PDF</a>
+            <a href="{{ asset('/CVpdf.pdf') }}" class="btn btn-success mt-3" download>Télécharger en PDF</a>
         </form>
     </div>
 </div>
@@ -176,4 +102,7 @@
         });
     </script>
     
+<footer class="footer">
+    <p>© {{ "now"|date("Y") }}  Mael DUTHU. Tous droits réservés. Reproduction interdite. Contact: maelduthu@gmail.com.</p>
+</footer>
 {% endblock %}

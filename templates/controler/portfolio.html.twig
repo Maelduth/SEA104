@@ -1,100 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Portfolio{% endblock %}
+{% block title %}E-Portfolio{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        .header-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .portfolio-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .flip-card {
-            background-color: transparent;
-            width: 200px;
-            height: 300px;
-            perspective: 1000px;
-            position: relative;
-            margin: 10px; /* Ajoute un espace entre les cartes */
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .flip-card-front {
-            background-color: #3498db;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .flip-card-back {
-            background-color: #2ecc71;
-            color: white;
-            transform: rotateY(180deg);
-            padding: 20px;
-        }
-        .flip-card-back button {
-            margin-top: 10px;
-            padding: 10px;
-            background: white;
-            color: #2ecc71;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .flip-card-back button:hover {
-            background: #27ae60;
-            color: white;
-        }
-        .iframe-container {
-            display: none;
-            width: 60%;
-            height: 80vh;
-            margin: 20px auto;
-            border: 2px solid black;
-            background: transparent;
-        }
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: transparent;
-        }
-    </style>
+    
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
     <div class="header-container">
-        <h1>Portfolio</h1>
+        <h1>E-Portfolio</h1>
         <p><strong>Découvrez les différentes compétences que j'ai acquises lors de mon premier semestre à l'IUT RT de Roanne.</strong></p>
     </div>
     <div class="portfolio-container">
@@ -122,9 +38,9 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">Compétence 3</div>
                 <div class="flip-card-back">
-                    <p>AC12.05 Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur.</p>
-                    <button onclick="openIframe('https://docs.google.com/document/d/1K-WO0RLRVRPbmHkVweaWZmP7WWi3TEjlReRj8WwoLVw/edit?tab=t.0')">Preuves</button>
-                    <button onclick="openIframe('https://docs.google.com/document/d/1iScEG2pDeM9ee2im0MwX6rYpgC-qcz5A9yzxXdGEo3A/edit?tab=t.0')">Analyse Réflexive</button>
+                    <p>AC12.01 Mesurer et analyser les signaux .</p>
+                    <button onclick="openIframe('https://docs.google.com/document/d/1Ae2CWUnRc6PQ02JYKL6J_1V4dBKtUNVxjy10ULunah0/edit?usp=drive_link')">Preuves</button>
+                    <button onclick="openIframe('https://docs.google.com/document/d/1aO7mtfmHKzb_ZYoxY2fzIjJCoDkkJyIlUczEyHx5QZg/edit?usp=drive_link')">Analyse Réflexive</button>
                 </div>
             </div>
         </div>
@@ -155,6 +71,8 @@
             document.getElementById('iframe-content').src = url;
             document.getElementById('iframe-container').style.display = 'block';
         }
-    </script>
-    
+    </script> 
+<footer class="footer">
+    <p>© {{ "now"|date("Y") }}  Mael DUTHU. Tous droits réservés. Reproduction interdite. Contact: maelduthu@gmail.com.</p>
+</footer>
 {% endblock %}
